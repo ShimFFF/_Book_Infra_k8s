@@ -1,1 +1,4 @@
-# vagrant-k8s
+# Book_Infra_k8s
+> 컨테이너 인프라 환경을 위한 쿠버네티스 / 도커 
+
+
