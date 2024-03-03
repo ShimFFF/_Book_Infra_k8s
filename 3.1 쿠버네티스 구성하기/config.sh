@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-# vim configuration 
-echo 'alias vi=vim' >> /etc/profile
+# vim configuration  
+echo 'alias vi=vim' >> /etc/profile # vi를 vim으로 사용하기 위한 설정
 
 # swapoff -a to disable swapping
-swapoff -a
+swapoff -a  #쿠버네티스 설치를 위해 스왑을 비활성화
 # sed to comment the swap partition in /etc/fstab
-sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
+sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab  #부팅시 스왑이 활성화 되지 않도록 설정
 
 # kubernetes repo
-gg_pkg="packages.cloud.google.com/yum/doc" # Due to shorten addr for key
+gg_pkg="packages.cloud.google.com/yum/doc" # 쿠버네티스를 내려받을 리포지토리를 설정하기 위한 경로가 너무 길어지지 않게 하기 위해 변수로 설정
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
